@@ -68,8 +68,9 @@ void List::remove(int k)
 	
 	if(k == 1)
 	{
-	  delPtr = frontPtr;
-	  frontPtr = frontPtr->link;
+	
+	 delPtr = frontPtr;
+	 frontPtr = frontPtr->link;
 	 }
 	 else
 	 {
@@ -93,3 +94,43 @@ void List::remove(int k)
 	
 	//Implementations of missing operations
 	
+void List::clear()
+{
+
+	Node* delPtr;
+
+	for(int i = 1; i<num_elements; i++)
+	{
+
+	delPtr = frontPtr;
+	
+	frontPtr = frontPtr->link;
+
+	delete delPtr;
+	}
+
+
+//Alternative
+
+/*	For(int i =1; i<num_elements; i++)
+	{
+		remove(1);
+	}
+*/
+}
+
+
+
+bool List::empty()
+{
+	
+	if(num_elements == 0)
+	{
+	return true;
+	}
+	else
+	{
+	return false;
+	}
+}
+
